@@ -1,0 +1,87 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{ msTimer t1;
+  int x=0;
+  message Sensor2Data msg1;
+}
+on key 's'
+{
+  if(@IGNITION::KL15==1)
+  {
+    @IGNITION::KL15=0;
+  }
+  else
+  {
+    @IGNITION::KL15=1;
+  }
+}
+ 
+on sysvar IGNITION::KL15
+{
+  if(@IGNITION::KL15==0)
+  {
+    write("Ignition is OFF");
+    cancelTimer(t1);
+  }
+  else
+  {
+    write("Ignition is ON ");
+    setTimer(t1,500);
+  }
+}
+ 
+
+on timer t1
+{ if(x==0){
+  setSignal(RLTprs,30);
+  setSignal(RLTtemp,60);
+  setSignal(RRTprs,29);
+  setSignal(RRTtemp,60);
+  output(msg1);
+  x=1;
+   }else if(x==1)
+  {
+  setSignal(RLTprs,33);
+  setSignal(RLTtemp,72);
+  setSignal(RRTprs,33);
+  setSignal(RRTtemp,72);
+  output(msg1);
+  x=2;
+     
+   }else if(x==2){
+    setSignal(RLTprs,33);
+  setSignal(RLTtemp,102);
+  setSignal(RRTprs,33);
+  setSignal(RRTtemp,101);
+  output(msg1);
+  x=3;
+   }else if(x==3){
+    setSignal(RLTprs,40);
+  setSignal(RLTtemp,73);
+  setSignal(RRTprs,10);
+  setSignal(RRTtemp,71);
+  output(msg1);
+  x=4;     
+   }else if(x==4){
+    setSignal(RLTprs,33);
+  setSignal(RLTtemp,102);
+  setSignal(RRTprs,10);
+  setSignal(RRTtemp,71);
+  output(msg1);
+  x=0;
+     
+   }
+  setTimer(t1,500);
+  
+  
+}
+ 
+
+
+
+

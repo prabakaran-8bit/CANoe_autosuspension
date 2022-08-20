@@ -1,0 +1,30 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  message Logic_data log1;
+}
+on message Input_data_gyromessage{
+  if ($gyroscopeX>0 && $gyroscopeY==0 && $gyroscopeZ==0){
+    setSignal(gyrologic,1);
+    output(log1);
+  }else if($gyroscopeX==0 && $gyroscopeY>0 && $gyroscopeZ==0){
+    setSignal(gyrologic,2);
+    output(log1);
+  }else if($gyroscopeX==0 && $gyroscopeY==0 && $gyroscopeZ>0){
+    setSignal(gyrologic,3);
+    output(log1);
+  }else if($gyroscopeX<0 && $gyroscopeY==0 && $gyroscopeZ==0){
+    setSignal(gyrologic,4);
+    output(log1);
+  }else if($gyroscopeX==0 && $gyroscopeY<0 && $gyroscopeZ==0){
+    setSignal(gyrologic,5);
+    output(log1);
+  }
+  
+  
+}

@@ -1,0 +1,56 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  
+  
+}
+on message Logic_data{
+  if($gyrologic==1){
+    write("back raise");
+    setControlVisibility("Panel1","Backraise",1);
+    setControlVisibility("Panel1","Frontraise",0);
+    setControlVisibility("Panel1","Leftraise",0);
+    setControlVisibility("Panel1","Rightraise",0);
+    setControlVisibility("Panel1","Allraise",0);
+    setControlVisibility("Panel1","Empty raise",0);
+    
+  }else if($gyrologic==2){
+    write("left raise"); 
+    setControlVisibility("Panel1","Backraise",0);
+    setControlVisibility("Panel1","Frontraise",0);
+    setControlVisibility("Panel1","Leftraise",0);
+    setControlVisibility("Panel1","Rightraise",1);
+    setControlVisibility("Panel1","Allraise",0);
+    setControlVisibility("Panel1","Empty raise",0);
+  }else if($gyrologic==3){
+    write("All raise");
+    setControlVisibility("Panel1","Backraise",0);
+    setControlVisibility("Panel1","Frontraise",0);
+    setControlVisibility("Panel1","Leftraise",0);
+    setControlVisibility("Panel1","Rightraise",0);
+    setControlVisibility("Panel1","Allraise",1);
+    setControlVisibility("Panel1","Empty raise",0);
+  }else if($gyrologic==4){
+    setControlVisibility("Panel1","Backraise",0);
+    setControlVisibility("Panel1","Frontraise",1);
+    setControlVisibility("Panel1","Leftraise",0);
+    setControlVisibility("Panel1","Rightraise",0);
+    setControlVisibility("Panel1","Allraise",0);
+    setControlVisibility("Panel1","Empty raise",0);
+    write("front raise");    
+  }else if($gyrologic==5){
+   setControlVisibility("Panel1","Backraise",0);
+    setControlVisibility("Panel1","Frontraise",0);
+    setControlVisibility("Panel1","Leftraise",1);
+    setControlVisibility("Panel1","Rightraise",0);
+    setControlVisibility("Panel1","Allraise",0);
+    setControlVisibility("Panel1","Empty raise",0);
+    write("right raise");    
+  }
+}
+

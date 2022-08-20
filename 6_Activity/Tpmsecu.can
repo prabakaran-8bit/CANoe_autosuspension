@@ -1,0 +1,17 @@
+ /*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  
+}
+on message Sensor2Data{
+
+  
+}
+on message Sensor1Data{
+  
+}

@@ -1,0 +1,21 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  
+}
+on message New_Message_1
+{
+  if ($New_Signal_1==20){
+    write ("DOORS OPEN");
+  }else if($New_Signal_1==40){
+    write ("DOORS CLOSE");
+    
+  }
+  
+}
+
